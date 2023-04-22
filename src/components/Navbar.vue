@@ -31,6 +31,7 @@ import {
   Logout,
   Time,
   Settings,
+  Wallet
 } from '@vicons/carbon';
 import { ref, h, onMounted, watch } from 'vue';
 import axios from 'axios';
@@ -38,6 +39,33 @@ import { useRouter, useRoute } from 'vue-router';
 import { supabase } from '../supabase';
 import VueLogo from '../assets/vue.svg';
 import { useAuth } from '../stores/AuthProvider';
+
+import { defineComponent } from 'vue';
+import { Stripe } from 'stripe';
+defineComponent({
+  components: {
+    Stripe,
+  },
+  setup() {
+    this.publishableKey = import.meta.env.VITE_STRIPE_KEY;
+    return {
+      loading: false,
+      lineItems: [
+        {
+          price: 'price_1Mzi2pHpQ4WsUFgqUvZvKVZf',
+          quantity: 1
+        }
+      ],
+      successUrl:'https://www.facebook.com/tungdao.1102',
+      cancelUrl:'https://www.facebook.com',
+    };
+  },
+  methods:{
+    submit(){
+      alert('submit')
+    }
+  }
+});
 
 const isDark = localStorage.theme === 'dark';
 const emit = defineEmits(['toggle-theme']);
@@ -115,6 +143,12 @@ const drawerOptions = [
     icon: renderIcon(Settings),
     key: '/settings',
   },
+  {
+    label: () => renderRoute('Premium', '/premium'),
+    icon: renderIcon(Wallet),
+    key: '/premium',
+  }
+    
 ];
 
 const getChannelInfo = async (listChannelId) => {
@@ -239,6 +273,7 @@ watch(route, ({ path }) => {
           </n-list>
         </n-input-group>
       </n-form>
+      
       <n-space align="center" justify="center" :size="20">
         <n-switch
           @update:value="emit('toggle-theme')"
@@ -344,6 +379,7 @@ watch(route, ({ path }) => {
         </n-space>
       </template>
       <n-menu :options="drawerOptions" :indent="16" :value="currentPath" />
+      
       <n-h5 prefix="bar" :style="{ margin: '8px' }" type="success">
         Subscriptions
       </n-h5>
@@ -375,3 +411,4 @@ watch(route, ({ path }) => {
     </n-drawer-content>
   </n-drawer>
 </template>
+

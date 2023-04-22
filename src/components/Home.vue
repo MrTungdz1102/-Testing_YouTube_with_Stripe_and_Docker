@@ -67,7 +67,7 @@ onMounted(async () => {
       `/trending?region=${localStorage['countryCode'] || 'VN'}`
     );
     videos.value = data.filter((v) => !v.isShort);
-    document.title = 'VueTube';
+    document.title = 'YouTube';
     window.addEventListener('scroll', nextTrendingData);
     window.scrollTo(0, 0);
     loadingBar.finish();
