@@ -26,14 +26,12 @@ export const useAuth = defineStore('auth-provider', {
                 provider: 'google',
             });
             const { user } = await supabase.auth.user();
-            const email = user.email;
-            const userData = { email: email };
-            const { error } = await supabase.from('user').upsert(userData, { onConflict: 'id', returning: 'minimal' });
+            const emails = user.email;
+		const roles = 0;
+         //   const userData = { email: email };
+            return await supabase.from('user').insert({email: emails, role: roles});
 
-            if (error) {
-                console.error('Error adding email to user table:', error);
-            }
-            await this.getUser();
+            
         },
         async signOut() {
             await supabase.auth.signOut();

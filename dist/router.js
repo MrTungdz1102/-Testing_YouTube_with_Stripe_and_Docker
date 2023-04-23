@@ -5,47 +5,47 @@ const router = createRouter({
     routes: [{
             path: '/',
             component: () =>
-                import ('../components/Home.vue'),
+                import ('../src/components/Home.vue'),
         },
         {
             path: '/search',
             component: () =>
-                import ('../components/Search/index.vue'),
+                import ('../src/components/Search/index.vue'),
         },
         {
             path: '/watch',
             component: () =>
-                import ('../components/Watch/index.vue'),
+                import ('../src/components/Watch/index.vue'),
         },
         {
             path: '/channel/:id',
             component: () =>
-                import ('../components/Channel/index.vue'),
+                import ('../src/components/Channel/index.vue'),
         },
         {
             path: '/history',
             component: () =>
-                import ('../components/History.vue'),
+                import ('../src/components/History.vue'),
         },
         {
             path: '/settings',
             component: () =>
-                import ('../components/Settings.vue'),
+                import ('../src/components/Settings.vue'),
         },
         {
             path: '/:pathMatch(.*)*',
             component: () =>
-                import ('../components/PageNotFound.vue'),
+                import ('../src/components/PageNotFound.vue'),
         },
         {
             path: '/premium',
             component: () =>
-                import ('../components/Pay.vue'),
+                import ('../src/components/Pay.vue'),
         },
         {
             path: '/success',
             component: () =>
-                import ('../components/Success.vue'),
+                import ('../src/components/Success.vue'),
         },
     ],
 });

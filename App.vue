@@ -1,5 +1,5 @@
 <script setup>
-import Navbar from './components/Navbar.vue';
+import Navbar from './src/components/Navbar.vue';
 import {
   NConfigProvider,
   darkTheme,
@@ -12,7 +12,7 @@ import {
 } from 'naive-ui';
 import { ref, onMounted } from 'vue';
 import { BackToTop } from '@vicons/carbon';
-import { localDB } from './utils/localDB';
+import { localDB } from './src/utils/localDB';
 
 const theme = ref(localStorage.theme === 'dark' ? darkTheme : lightTheme);
 

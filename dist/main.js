@@ -1,11 +1,12 @@
 import { createApp } from 'vue';
 import axios from 'axios';
-import App from './App.vue';
-import router from './router';
+import App from '../App.vue';
+import router from './router.js';
 import { createPinia } from 'pinia';
 
 axios.defaults.baseURL =
-  document.cookie.split('=')[1] || import.meta.env.VITE_API_URL;
+    document.cookie.split('=')[1] ||
+    import.meta.env.VITE_API_URL;
 const app = createApp(App);
 
 // Middleware
