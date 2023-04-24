@@ -88,7 +88,7 @@ const nextHistoryItems = () => {
 onMounted(() => {
   try {
     loadingBar.start();
-    document.title = 'History | VueTube';
+    document.title = 'History | YouTube';
     getHistory();
   } catch (err) {
     loadingBar.error();

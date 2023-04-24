@@ -83,7 +83,7 @@ const seekTimes = [
 ];
 
 onMounted(async () => {
-  document.title = 'Settings | VueTube';
+  document.title = 'Settings | YouTube';
   const serverList = await axios.get(import.meta.env.VITE_LIST_SERVER);
   servers.value = serverList.data;
   const countryList = await axios.get('https://restcountries.com/v2/all');

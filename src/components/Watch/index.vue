@@ -30,7 +30,7 @@ const getVideoDetail = async (id) => {
     loadingBar.start();
     const { data } = await axios.get(`/streams/${id}`);
     videoDetail.value = data;
-    document.title = `${data.title} | VueTube`;
+    document.title = `${data.title} | YouTube`;
     loadingBar.finish();
     return videoDetail.value;
   } catch (err) {

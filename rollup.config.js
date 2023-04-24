@@ -6,6 +6,6 @@ export default {
         file: '/output.js',
         format: 'esm'
     },
-    external: ['/main.js'],
+    external: ['/dist/main.js'],
     // ...
 };
